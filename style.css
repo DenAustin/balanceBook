@@ -1,0 +1,120 @@
+* {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: ‘Arvo’, serif;
+  font-weight: bolder;
+  color: #333;
+}
+
+.main{
+  display: flex;
+  width: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+   flex: 1;
+  align-items: center;
+}
+.header{
+  border: 5px solid #ffcc5c;
+  display: flex;
+  width: 80%;
+  margin: 5%;
+  justify-content: space-around;
+}
+
+.header-title{
+  flex: 1;
+}
+
+#aY-label{
+margin-left: auto;
+ 
+}
+
+#logOut-label{
+  
+}
+
+.continer-div{
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.inputs-N-btn{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height:30px;
+  padding:10px;
+  border-radius: 5px;
+  border:none;
+  outline:none;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.lower-container > div{
+  border: 5px solid #ffcc5c;
+  display: flex;
+  width: 80%;
+  margin: 5%;
+  justify-content: space-around;
+}
+
+.top-display-container{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 10px;
+  border: 5px solid #afcc5c;
+}
+
+.balance{
+
+}
+
+.income-table{
+  display: flex;
+  flex-direction: column;
+}
+.innerDivs{
+  padding: 5px;
+  border: 1px solid #afb399;
+}
+
+.expenses-table{
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.domDivWrapExpeses{
+  display: flex;
+  
+  
+  
+}
+
+.income-table{
+  display: flex;
+}
+
+.domDivWrapIncome{
+  display: flex;
+}
+.summary-statement{
+  
+}

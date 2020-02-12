@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="header">
+      <h1 class="header-title">ACCOUNT BALANCE</h1>
+      <label for="header" id="aY-label">AY</label>
+      <label for="header" id="logOut-label">LOGOUT</label>
+    </div>
+    <div class="continer-div">
+      <div class="inputs-N-btn">
+        <input type="text" class="prompt-description" placeholder="item" >
+        <input type="text" class="prompt-amount" placeholder="amount" >
+        <select name="income-cost" class="income-cost-selectors">
+          <option value="default" id="default-select">--Select--</option>
+          <option value="income" id="select-income">Income</option>
+          <option value="costs" id="select-expense">Expense</option>
+        </select>
+        <div id="add-btn">Add</div>       
+      </div>
+      <div class="top-display-container">
+        <div class="expenses-table">Expenses
+          <div id="expense-table-head"></div>
+          <div class="domDivWrapExpeses">
+            <div id="expesnse-descrition"></div>
+            <div id="expense-amount"></div>
+            <div id="expense-date-time"></div>
+          </div>
+        </div>
+        <div class="income-table">
+          <div id="income-table-head">Income</div>
+          <div class="domDivWrapIncome">
+            <div id="income-description"></div>
+            <div id="income-amount"></div>
+            <div id="income-date-time"></div>
+          </div>
+        </div>
+      </div>
+      <div class="lower-container">
+        <div id="balance">Balance</div>
+        <div id="summary-statement"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
