@@ -93,6 +93,7 @@ const expenseDisplay = () => {
         expenseDescription.innerHTML += `<div class="innerDivs"> <p>${entry.description}</p></div>`
         expAmount.innerHTML += `<div class="innerDivs"> <p> ${entry.amount}</p></div>`
         expenseTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
+        
     
         });
 }
@@ -107,7 +108,7 @@ const incomeDisplay= ()=> {
         incomeDescription.innerHTML += `<div class="innerDivs"> <p>${entry.description}</p></div>`
         incomeAmount.innerHTML += `<div class="innerDivs"><p> ${entry.amount}</p></div>`;
         incomeTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
-    
+
     });
 }
 incomeDisplay()
@@ -122,12 +123,28 @@ const selectEvent = () => {
     }else if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="costs"){
         accountBalance.addExpense()
         expenseDisplay()
-        
+     
     }else{
         alert("Please select income or expense")
     }
 }
 addBtn.addEventListener("click", selectEvent);
+
+
+let sumTotal = accountBalance.totalIncome() 
+console.log("Happy Joe " + sumTotal)
+
+
+const incomeSummation = () => {
+    let juice = sumTotal += Number(promptAmount.value)
+    console.log("Juicy " + juice)
+    document.getElementById("sumTotal").innerHTML = juice
+}
+addBtn.addEventListener("click", incomeSummation);
+
+
+
+
 
 // do map and reduce to get total income and expenses
 //add div with totals to balance by calling the respective functions
