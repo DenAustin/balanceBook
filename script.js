@@ -9,7 +9,7 @@ const eventHour = currentDate.getHours()
 const eventMinute= currentDate.getMinutes()
 const eventSecond = currentDate.getSeconds() 
 
-const eventTimeStamp = `${eventYear} - ${eventMonth} - ${eventDate}  ${eventHour} :${eventMinute} :"${eventSecond}`
+const eventTimeStamp = `${eventMonth} / ${eventDate} / ${eventYear} ::  ${eventHour} :${eventMinute} :${eventSecond}`
 //get html elements
 const promptDescription = document.querySelector(".prompt-description");
 const promptAmount = document.querySelector(".prompt-amount");
@@ -77,7 +77,10 @@ const accountBalance = {
       return total
   },
   totalExpense: function () {
-      return this.expenses.reduce((acc, curr) => acc + curr.amount)
+    const total = this.expenses.reduce((acc, curr) => {
+          return acc + curr.amount
+      },0)
+      return total
   },
   accountBalance: function () {
       const balance = this.totalIncome() - this.totalExpense()
@@ -93,8 +96,6 @@ const expenseDisplay = () => {
         expenseDescription.innerHTML += `<div class="innerDivs"> <p>${entry.description}</p></div>`
         expAmount.innerHTML += `<div class="innerDivs"> <p> ${entry.amount}</p></div>`
         expenseTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
-        
-    
         });
 }
 expenseDisplay()
@@ -132,15 +133,36 @@ addBtn.addEventListener("click", selectEvent);
 
 
 let sumTotal = accountBalance.totalIncome() 
+let expnseTotal = accountBalance.totalExpense() 
 console.log("Happy Joe " + sumTotal)
 
 
 const incomeSummation = () => {
-    let juice = sumTotal += Number(promptAmount.value)
+    let juice 
+    let allSpending
     console.log("Juicy " + juice)
-    document.getElementById("sumTotal").innerHTML = juice
+    if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="income"){
+        juice = sumTotal += Number(promptAmount.value)
+        document.getElementById("sumTotal").innerHTML = juice
+    }else if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="costs"){
+        allSpending = expnseTotal += Number(promptAmount.value)
+        document.getElementById("sum-total-expense").innerHTML = allSpending
+     }
+    
 }
 addBtn.addEventListener("click", incomeSummation);
+
+
+
+
+//console.log("Joe Public " + expnseTotal)
+// const expensesSummation = () => {
+    
+    //let juice1 = expnseTotal += Number(promptAmount.value)
+//     document.getElementById("sum-total-expense").innerHTML = allSpending
+
+// }
+// expensesSummation()
 
 
 
