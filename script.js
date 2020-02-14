@@ -1,3 +1,5 @@
+    //  Title: Balance sheet calculator 20200214
+
 // Date and time
 const currentDate = new Date()
 
@@ -10,19 +12,12 @@ const eventMinute= currentDate.getMinutes()
 const eventSecond = currentDate.getSeconds() 
 
 const eventTimeStamp = `${eventMonth} / ${eventDate} / ${eventYear} ::  ${eventHour} :${eventMinute} :${eventSecond}`
-//get html elements
+
+//get html tags and elements
 const promptDescription = document.querySelector(".prompt-description");
 const promptAmount = document.querySelector(".prompt-amount");
 const incomeCostSelectors = document.querySelector(".income-cost-selectors");
-const selectIncome = document.querySelector("#select-income");
-const selectExpense = document.querySelector("#select-expense");
 const addBtn = document.querySelector("#add-btn");
-const topDisplayContainer = document.querySelector(".top-display-container");
-const expenses = document.querySelector(".expenses");
-const expensesTable = document.querySelector(".expenses-table");
-const incomeTable = document.querySelector(".income-table");
-const lowerContainer = document.querySelector(".lower-container");
-const balance = document.querySelector("#balance");
 const summaryStatement = document.querySelector("#summary-statement");
 const expenseDescription = document.querySelector("#expesnse-descrition");
 const incomeDescription = document.querySelector("#income-description");
@@ -30,7 +25,7 @@ const expAmount = document.querySelector("#expense-amount");
 const incomeAmount = document.querySelector("#income-amount");
 const expenseTimeStamp = document.querySelector("#expense-date-time");
 const incomeTimeStamp = document.querySelector("#income-date-time");
-const incomeDiv= document.querySelector(".domDivWrapIncome")
+
 
 //Asabeneh method
 const accountBalance = {
@@ -82,7 +77,7 @@ const accountBalance = {
       },0)
       return total
   },
-  accountBalance: function () {
+  balanceSheet: function () {
       const balance = this.totalIncome() - this.totalExpense()
       return balance
   }
@@ -132,18 +127,18 @@ const selectEvent = () => {
 addBtn.addEventListener("click", selectEvent);
 
 
+//To sum and allocate income and expenses
 let sumTotal = accountBalance.totalIncome() 
 let expnseTotal = accountBalance.totalExpense() 
 console.log("Happy Joe " + sumTotal)
 
 
 const incomeSummation = () => {
-    let juice 
+    let sales 
     let allSpending
-    console.log("Juicy " + juice)
     if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="income"){
-        juice = sumTotal += Number(promptAmount.value)
-        document.getElementById("sumTotal").innerHTML = juice
+        sales = sumTotal += Number(promptAmount.value)
+        document.getElementById("sumTotal").innerHTML = sales
     }else if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="costs"){
         allSpending = expnseTotal += Number(promptAmount.value)
         document.getElementById("sum-total-expense").innerHTML = allSpending
@@ -152,36 +147,8 @@ const incomeSummation = () => {
 }
 addBtn.addEventListener("click", incomeSummation);
 
-
-
-
-//console.log("Joe Public " + expnseTotal)
-// const expensesSummation = () => {
-    
-    //let juice1 = expnseTotal += Number(promptAmount.value)
-//     document.getElementById("sum-total-expense").innerHTML = allSpending
-
-// }
-// expensesSummation()
-
-
-
-
-
-// do map and reduce to get total income and expenses
-//add div with totals to balance by calling the respective functions
-//play around to find out the function pararmeters
-
-
-
-
-
-
-
-
-
-
-
+console.log("Ston " + accountBalance.balanceSheetop)
+accountBalance.balanceSheet()
 
 
 
