@@ -11,7 +11,8 @@ const eventHour = currentDate.getHours()
 const eventMinute= currentDate.getMinutes()
 const eventSecond = currentDate.getSeconds() 
 
-const eventTimeStamp = `${eventMonth} / ${eventDate} / ${eventYear} ::  ${eventHour} :${eventMinute} :${eventSecond}`
+const eventTimeStamp = `${eventMonth} / ${eventDate} / ${eventYear} ::  ${eventHour} :${eventMinute}`
+const statmentDate = `${eventMonth} -${eventDate} - ${eventYear}`
 
 //get html tags and elements
 const promptDescription = document.querySelector(".prompt-description");
@@ -80,6 +81,7 @@ const accountBalance = {
   balanceSheet: function () {
       const balance = this.totalIncome() - this.totalExpense()
       return balance
+      
   }
 }
 //Div maker for income entries
@@ -90,7 +92,7 @@ const expenseDisplay = () => {
     accountBalance.expenses.forEach(entry => {
         expenseDescription.innerHTML += `<div class="innerDivs"> <p>${entry.description}</p></div>`
         expAmount.innerHTML += `<div class="innerDivs"> <p> ${entry.amount}</p></div>`
-        expenseTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
+        //expenseTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
         });
 }
 expenseDisplay()
@@ -103,7 +105,7 @@ const incomeDisplay= ()=> {
       accountBalance.incomes.forEach(entry => {
         incomeDescription.innerHTML += `<div class="innerDivs"> <p>${entry.description}</p></div>`
         incomeAmount.innerHTML += `<div class="innerDivs"><p> ${entry.amount}</p></div>`;
-        incomeTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
+        //incomeTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
 
     });
 }
@@ -116,9 +118,13 @@ const selectEvent = () => {
     if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="income" ){
         accountBalance.addIncome()
         incomeDisplay()
+        incomeTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
+
     }else if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="costs"){
         accountBalance.addExpense()
         expenseDisplay()
+        expenseTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
+
      
     }else{
         alert("Please select income or expense")
@@ -139,9 +145,16 @@ const incomeSummation = () => {
     if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="income"){
         sales = sumTotal += Number(promptAmount.value)
         document.getElementById("sumTotal").innerHTML = sales
+        document.querySelector(".accBalance").innerHTML = accountBalance.balanceSheet()
+        document.querySelector("#summary-statement").innerHTML = ""
+        document.querySelector("#summary-statement").innerHTML += `Your account balance as at ${"  "} ${statmentDate} is Euro ${accountBalance.balanceSheet()}`
     }else if(promptAmount.value !==null &&  promptDescription.value !== null && incomeCostSelectors.value =="costs"){
         allSpending = expnseTotal += Number(promptAmount.value)
         document.getElementById("sum-total-expense").innerHTML = allSpending
+        //expenseTimeStamp.innerHTML += `<div class="innerDivs"><p> ${eventTimeStamp}</p></div>`;
+        document.querySelector(".accBalance").innerHTML = accountBalance.balanceSheet()
+        document.querySelector("#summary-statement").innerHTML = ""
+        document.querySelector("#summary-statement").innerHTML += `Your account balance as at ${"  "} ${statmentDate} is Euro ${accountBalance.balanceSheet()}`
      }
     
 }
@@ -149,6 +162,7 @@ addBtn.addEventListener("click", incomeSummation);
 
 console.log("Ston " + accountBalance.balanceSheetop)
 accountBalance.balanceSheet()
+console.log("titus " + accountBalance.balanceSheet())
 
 
 

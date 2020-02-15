@@ -115,6 +115,10 @@ margin-left: auto;
 .domDivWrapIncome{
   display: flex;
 }
+.balanceDiv{
+  display: flex;
+  flex-direction: row;
+}
 .summary-statement{
   
 }
